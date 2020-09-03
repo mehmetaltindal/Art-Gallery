@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         //Inflater
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu,menu);
-
+        menuInflater.inflate(R.menu.filter_menu,menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -101,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.add_art_item) {
             Intent intent = new Intent(MainActivity.this,Main2Activity.class);
             intent.putExtra("info","new");
+            startActivity(intent);
+        }
+        else if (item.getItemId() == R.id.add_filter_item)
+        {
+            Intent intent = new Intent(MainActivity.this,FilterActivity.class);
             startActivity(intent);
         }
 
