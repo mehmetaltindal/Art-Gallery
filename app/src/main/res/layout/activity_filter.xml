@@ -11,32 +11,34 @@
         android:layout_width="364dp"
         android:layout_height="191dp"
         android:layout_marginTop="48dp"
+        android:contentDescription="TODO"
         android:onClick="selectImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/selectimage"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/selectimage" />
 
     <Button
         android:id="@+id/filterButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginBottom="144dp"
-        android:text="blackwhite"
+        android:onClick="makeBlackWhite"
+        android:text="B AND W"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFilter" />
+        app:layout_constraintTop_toBottomOf="@+id/artNameText2" />
 
     <Button
         android:id="@+id/filterButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:onClick="makeSepia"
         android:text="Sepia"
         app:layout_constraintBottom_toBottomOf="@+id/filterButton1"
         app:layout_constraintStart_toEndOf="@+id/filterButton1" />
@@ -45,13 +47,38 @@
         android:id="@+id/filterButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:onClick="makeRainbow"
         android:text="RAINBOW"
         app:layout_constraintBottom_toBottomOf="@+id/filterButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/filterButton2" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="save"
+        android:text="Save"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterButton2" />
+
+    <EditText
+        android:id="@+id/artNameText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter Art Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewFilter" />
 </androidx.constraintlayout.widget.ConstraintLayout>

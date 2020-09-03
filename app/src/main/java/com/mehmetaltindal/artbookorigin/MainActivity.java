@@ -103,9 +103,10 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("info","new");
             startActivity(intent);
         }
-        else if (item.getItemId() == R.id.add_filter_item)
+        if (item.getItemId() == R.id.add_filter_item)
         {
             Intent intent = new Intent(MainActivity.this,FilterActivity.class);
+            intent.putExtra("info","new");
             startActivity(intent);
         }
 

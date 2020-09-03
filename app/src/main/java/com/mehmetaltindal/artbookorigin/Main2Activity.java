@@ -41,7 +41,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         imageView = findViewById(R.id.imageView);
-        artNameText = findViewById(R.id.artNameText);
+        artNameText = findViewById(R.id.artNameText2);
         painterNameText = findViewById(R.id.painterNameText);
         yearText = findViewById(R.id.yearText);
         button = findViewById(R.id.button);
