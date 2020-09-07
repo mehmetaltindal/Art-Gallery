@@ -20,12 +20,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -35,13 +37,16 @@ public class Main2Activity extends AppCompatActivity {
     Button button;
     SQLiteDatabase database;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
+
         imageView = findViewById(R.id.imageView);
-        artNameText = findViewById(R.id.artNameText2);
+        artNameText = findViewById(R.id.artNameText);
         painterNameText = findViewById(R.id.painterNameText);
         yearText = findViewById(R.id.yearText);
         button = findViewById(R.id.button);
@@ -100,6 +105,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
     }
+
 
 
     public void selectImage(View view) {

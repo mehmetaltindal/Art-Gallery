@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FilterActivity">
+    tools:context=".FilterActivity"
+    android:configChanges="orientation|screenSize">
 
     <ImageView
         android:id="@+id/imageViewFilter"
@@ -51,8 +52,8 @@
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
-        android:onClick="makeRainbow"
-        android:text="RAINBOW"
+        android:onClick="makeRed"
+        android:text="Red"
         app:layout_constraintBottom_toBottomOf="@+id/filterButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

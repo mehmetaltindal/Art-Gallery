@@ -17,76 +17,68 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
-    ListView listView;
+public class FilterListActivity extends AppCompatActivity {
+    ListView listView2;
+    ArrayAdapter arrayAdapter;
     ArrayList<String> nameArray;
     ArrayList<Integer> idArray;
-    ArrayAdapter arrayAdapter;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_filter_list);
 
-        listView = findViewById(R.id.listView);
+        listView2 = findViewById(R.id.listView2);
+
         nameArray = new ArrayList<String>();
         idArray = new ArrayList<Integer>();
 
-
-
-        arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,nameArray);
-
-        listView.setAdapter(arrayAdapter);
-
-
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_2,nameArray);
+        listView2.setAdapter(arrayAdapter);
+        listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("artId",idArray.get(position));
-                intent.putExtra("info","old");
-                startActivity(intent);
+                Intent intent2 = new Intent(FilterListActivity.this,FilterActivity.class);
+                intent2.putExtra("artId",idArray.get(position));
+                intent2.putExtra("info","old");
+                startActivity(intent2);
 
 
             }
         });
 
-
-        getData();
-
-
+        getData2();
 
     }
 
-    public void getData() {
 
+
+
+    public void getData2(){
+        System.out.println("merhaba2");
         try {
-            SQLiteDatabase database = this.openOrCreateDatabase("Arts",MODE_PRIVATE,null);
+            SQLiteDatabase database2 = this.openOrCreateDatabase("Arts2",MODE_PRIVATE,null);
 
-            Cursor cursor = database.rawQuery("SELECT * FROM arts", null);
-            int nameIx = cursor.getColumnIndex("artname");
-            int idIx = cursor.getColumnIndex("id");
+            Cursor cursor2 = database2.rawQuery("SELECT * FROM arts2", null);
+            int nameIx = cursor2.getColumnIndex("artname");
+            int idIx = cursor2.getColumnIndex("id");
 
-            while (cursor.moveToNext()) {
-                nameArray.add(cursor.getString(nameIx));
-                idArray.add(cursor.getInt(idIx));
+            while (cursor2.moveToNext()) {
+                nameArray.add(cursor2.getString(nameIx));
+                idArray.add(cursor2.getInt(idIx));
 
             }
 
             arrayAdapter.notifyDataSetChanged();
 
-            cursor.close();
+            cursor2.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
-
-
 
 
 
@@ -107,15 +99,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.add_art_item) {
-            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-            intent.putExtra("info","new");
-            startActivity(intent);
+            Intent intent2 = new Intent(FilterListActivity.this,Main2Activity.class);
+            intent2.putExtra("info","new");
+            startActivity(intent2);
         }
         if (item.getItemId() == R.id.add_filter_item)
         {
-            Intent intent = new Intent(MainActivity.this,FilterActivity.class);
-            intent.putExtra("info","new");
-            startActivity(intent);
+            Intent intent2 = new Intent(FilterListActivity.this,FilterActivity.class);
+            intent2.putExtra("info","new");
+            startActivity(intent2);
         }
 
         return super.onOptionsItemSelected(item);
